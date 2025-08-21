@@ -19,7 +19,7 @@ const Home = () => {
               : "text-black text-stroke-white mix-blend-screen"
           }`}
         >
-          Mernstack
+          Fullstack
         </h1>
         <h1
           className={`text-[11rem] font-mediasanssemicondensed-bold stroke-2 stroke-red-600 transition-all ease-in-out duration-500 ${
