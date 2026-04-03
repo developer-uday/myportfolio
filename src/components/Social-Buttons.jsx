@@ -1,65 +1,98 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faLinkedinIn as LinkedinLogo,
-  faGithub as GithubLogo,
-  faInstagram as InstagramLogo,
+  faLinkedinIn,
+  faGithub,
+  faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const SocialButtons = () => {
   const [hoveredButton, setHoveredButton] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const socials = [
+    {
+      id: "linkedin",
+      name: "LinkedIn",
+      icon: faLinkedinIn,
+      link: "https://www.linkedin.com/in/udaysingh6202",
+    },
+    {
+      id: "github",
+      icon: faGithub,
+      name: "GitHub",
+      link: "https://github.com/developer-uday",
+    },
+    {
+      id: "instagram",
+      icon: faInstagram,
+      name: "Instagram",
+      link: "https://instagram.com/therisinguday",
+    },
+  ];
 
   return (
-    <div className="flex flex-col fixed left-0 top-1/3 gap-[0.05rem]">
-      {/* LinkedIn Button */}
-      <div
-        className={`bg-black text-white p-2 text-xl rounded-r-md w-10 whitespace-nowrap h-auto cursor-pointer transition-all duration-300 ${
-          hoveredButton === "linkedin" ? "w-44" : "w-10"
-        }`}
-        onMouseEnter={() => setHoveredButton("linkedin")}
-        onMouseLeave={() => setHoveredButton(null)}
-      >
-        <FontAwesomeIcon icon={LinkedinLogo} className="transition-all" />
-        {hoveredButton === "linkedin" && (
-          <Link className="text-sm ml-3 transition-all duration-300 ease-in">
-            Connect with me.
-          </Link>
-        )}
+    <>
+      {/* DESKTOP (same as before) */}
+      <div className="hidden sm:flex flex-col fixed left-0 top-1/3 gap-0.5 z-50">
+        {socials.map((item) => (
+          <a
+            key={item.id}
+            href={item.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            onMouseEnter={() => setHoveredButton(item.id)}
+            onMouseLeave={() => setHoveredButton(null)}
+            className={`bg-black text-white p-2 text-xl rounded-r-md whitespace-nowrap cursor-pointer transition-all duration-300 flex items-center ${
+              hoveredButton === item.id ? "w-40" : "w-10"
+            }`}
+          >
+            <FontAwesomeIcon icon={item.icon} />
+            {hoveredButton === item.id && (
+              <span className="text-sm ml-3">{item.name}</span>
+            )}
+          </a>
+        ))}
       </div>
 
-      {/* GitHub Button */}
-      <div
-        className={`bg-black text-white p-2 text-xl rounded-r-md w-10 whitespace-nowrap h-auto cursor-pointer transition-all duration-300 ${
-          hoveredButton === "github" ? "w-36" : "w-10"
-        }`}
-        onMouseEnter={() => setHoveredButton("github")}
-        onMouseLeave={() => setHoveredButton(null)}
-      >
-        <FontAwesomeIcon icon={GithubLogo} className="transition-all" />
-        {hoveredButton === "github" && (
-          <Link className="text-sm ml-3 transition-all duration-300 ease-in">
-            Check to me.
-          </Link>
-        )}
-      </div>
+      {/* MOBILE FAB */}
+      <div className="sm:hidden fixed bottom-6 right-6 z-20 flex flex-col items-end gap-3">
+        
+        {/* Social Icons */}
+        {socials.map((item, index) => (
+          <a
+            key={item.id}
+            href={item.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`bg-black text-white px-4 py-3 rounded-full shadow-lg transform transition-all duration-300 ${
+              isOpen
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-5 pointer-events-none"
+            }`}
+            style={{
+              transitionDelay: isOpen ? `${index * 100}ms` : "0ms",
+            }}
+          >
+            <FontAwesomeIcon icon={item.icon} />
+          </a>
+        ))}
 
-      {/* Instagram Button */}
-      <div
-        className={`bg-black text-white p-2 text-xl rounded-r-md w-10 whitespace-nowrap h-auto cursor-pointer transition-all duration-300 ${
-          hoveredButton === "instagram" ? "w-32" : "w-10"
-        }`}
-        onMouseEnter={() => setHoveredButton("instagram")}
-        onMouseLeave={() => setHoveredButton(null)}
-      >
-        <FontAwesomeIcon icon={InstagramLogo} className="transition-all" />
-        {hoveredButton === "instagram" && (
-          <Link className="text-sm ml-3 transition-all duration-300 ease-in">
-            Follow me.
-          </Link>
-        )}
+        {/* Main FAB Button */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="bg-black text-white px-5 py-4 rounded-full shadow-xl transition-transform duration-300"
+        >
+          <FontAwesomeIcon
+            icon={faPlus}
+            className={`transition-transform duration-300 ${
+              isOpen ? "rotate-45" : ""
+            }`}
+          />
+        </button>
       </div>
-    </div>
+    </>
   );
 };
 

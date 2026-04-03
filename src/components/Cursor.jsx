@@ -1,43 +1,74 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { gsap } from "gsap";
 
 const Cursor = () => {
+  const [isDesktop, setIsDesktop] = useState(false);
+
   useEffect(() => {
-    const cursor = document.getElementById("custom-cursor");
-    const onMouseMove = (e) => {
-      const { clientX, clientY } = e;
-      gsap.to(cursor, { x: clientX, y: clientY });
+    const checkScreen = () => {
+      setIsDesktop(window.innerWidth >= 768); // md breakpoint
     };
 
-    const onMouseEnter = (e) => {
-      const link = e.target;
-      if (link.classList.contains("view")) {
-        gsap.to(cursor, { scale: 8, background: "transparent" });
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
+
+  useEffect(() => {
+    if (!isDesktop) return;
+
+    const cursor = document.getElementById("custom-cursor");
+
+    const moveCursor = (e) => {
+      gsap.to(cursor, {
+        x: e.clientX - 12,
+        y: e.clientY - 12,
+        duration: 0.15,
+        ease: "power2.out",
+      });
+    };
+
+    const handleHover = (e) => {
+      const target = e.target;
+
+      if (target.closest("#cursoreffect")) {
+        gsap.to(cursor, {
+          scale: 4,
+          borderWidth: 0,
+          backgroundColor: "white",
+        });
+      } else if (target.closest("a, button, .view")) {
+        gsap.to(cursor, {
+          scale: 2.5,
+          borderWidth: 0,
+          backgroundColor: "white",
+        });
       } else {
-        gsap.to(cursor, { scale: 1.5 });
+        gsap.to(cursor, {
+          scale: 1,
+          borderWidth: 1,
+          backgroundColor: "transparent",
+        });
       }
     };
 
-    const onMouseLeave = () => {
-      gsap.to(cursor, { scale: 1.5 });
-    };
-
-    document.addEventListener("mousemove", onMouseMove);
-    document.addEventListener("mouseenter", onMouseEnter, true);
-    document.addEventListener("mouseleave", onMouseLeave, true);
+    document.addEventListener("mousemove", moveCursor);
+    document.addEventListener("mouseover", handleHover);
 
     return () => {
-      document.removeEventListener("mousemove", onMouseMove);
-      document.removeEventListener("mouseenter", onMouseEnter, true);
-      document.removeEventListener("mouseleave", onMouseLeave, true);
+      document.removeEventListener("mousemove", moveCursor);
+      document.removeEventListener("mouseover", handleHover);
     };
-  }, []);
+  }, [isDesktop]);
+
+  if (!isDesktop) return null;
 
   return (
     <div
       id="custom-cursor"
-      className="fixed top-0 left-0 w-5 h-5 rounded-full pointer-events-none z-50 p-2.5 bg-transparent border"
-    ></div>
+      className="fixed top-0 left-0 w-6 h-6 rounded-full pointer-events-none z-[999] border border-black mix-blend-difference"
+    />
   );
 };
 
