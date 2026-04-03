@@ -63,7 +63,7 @@ const Home = () => {
         />
 
         {/* Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 mt-10 sm:mt-24 text-sm w-full sm:w-auto items-center">
+        <div className="flex flex-col sm:flex-row gap-4 mt-0 sm:mt-24 text-sm w-full sm:w-auto items-center">
           <button
             onClick={() =>
               window.open("https://wa.me/918340478491?text=Hello%20Uday,%0AI%20came%20across%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20potential%20project%20opportunity%20with%20you.%20Please%20let%20me%20know%20a%20convenient%20time%20to%20connect.")
