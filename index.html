@@ -1,14 +1,99 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Basic -->
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/logoWhite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="/src/index.css" rel="stylesheet">
-    <title>Uday Pratap Singh</title>
+
+    <!-- Title -->
+    <title>Uday Pratap Singh | Full Stack Developer</title>
+
+    <!-- SEO Meta -->
+    <meta
+      name="description"
+      content="Hi, I'm Uday Pratap Singh, a passionate Full stack developer. Explore my portfolio showcasing modern web development projects, skills, and experience in building responsive and dynamic web applications."
+    />
+    <meta
+      name="keywords"
+      content="Uday Pratap Singh, MERN developer, Uday, Uday Pratap, Uday Singh, React developer, Node.js developer, web developer portfolio, full stack developer India"
+    />
+    <meta name="author" content="Uday Pratap Singh" />
+
+    <!-- Open Graph (for LinkedIn, WhatsApp preview) -->
+    <meta
+      property="og:title"
+      content="Uday Pratap Singh | Full Stack Developer"
+    />
+    <meta
+      property="og:description"
+      content="Hi, I'm Uday Pratap Singh. This is my portfolio for showcasing projects, skills, and modern web development work which i have done."
+    />
+    <meta property="og:image" content="/myportfoliopreview.png" />
+    <meta property="og:url" content="https://udayportfoliopage.vercel.app" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Uday Pratap Singh | Full Stack Developer"
+    />
+    <meta
+      name="twitter:description"
+      content="Portfolio of Uday Pratap Singh showcasing modern web projects."
+    />
+    <meta name="twitter:image" content="/myportfoliopreview.png" />
+
+    <!-- Theme Color (mobile browser UI color) -->
+    <meta name="theme-color" content="#000000" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://udayportfoliopage.vercel.app" />
+
+    <!-- CSS -->
+    <link href="/src/index.css" rel="stylesheet" />
+
+    <!-- Structured Data (Google rich results) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Uday Pratap Singh",
+        "url": "https://udayportfoliopage.vercel.app",
+        "sameAs": [
+          "https://github.com/developer-uday",
+          "https://www.linkedin.com/in/udaysingh6202",
+          "https://www.instagram.com/udaypratap.singh"
+        ],
+        "jobTitle": "Full Stack Developer"
+      }
+    </script>
   </head>
+
   <body>
     <div id="root"></div>
+
     <script type="module" src="/src/main.jsx"></script>
+
+    <!-- SPA redirect fix -->
+    <script>
+      (function (l) {
+        if (l.search[1] === "/") {
+          var decoded = l.search
+            .slice(1)
+            .split("&")
+            .map(function (s) {
+              return s.replace(/~and~/g, "&");
+            })
+            .join("?");
+          window.history.replaceState(
+            null,
+            null,
+            l.pathname.slice(0, -1) + decoded + l.hash,
+          );
+        }
+      })(window.location);
+    </script>
   </body>
 </html>

@@ -12,7 +12,7 @@ const Home = () => {
     <>
       <Cursor />
 
-      <div className="flex items-center flex-col w-full min-h-screen p-4 sm:px-8 md:px-16 pt-10 sm:pt-16 md:pt-28 font-Montserrat cursor-none overflow-hidden">
+      <div className="flex items-center flex-col w-full min-h-[100dvh] lg:min-h-screen md:min-h-screen p-4 sm:px-8 md:px-16 pt-10 sm:pt-16 md:pt-28 font-Montserrat cursor-none overflow-hidden">
         <SocialButtons />
 
         {/* Intro */}

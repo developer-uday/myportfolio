@@ -5,7 +5,7 @@ const BuyMeCoffee = () => {
     "upi://pay?pa=8340478491@pthdfc&pn=UDAY%20PRATAP%20SINGH%20S%20O%20BIRENDRA%20NARA";
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4 -mt-16 md:mt-auto lg:mt-auto">
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4 -mt-9 md:mt-auto lg:mt-auto">
       <div className="bg-white shadow-md rounded-2xl p-8 max-w-md w-full text-center">
         <h1 className="text-2xl font-semibold mb-2">Buy Me a Coffee ☕</h1>X
         <p className="text-gray-600 text-sm mb-6">
