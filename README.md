@@ -1,4 +1,4 @@
-# Uday Singh — Portfolio
+# Uday Pratap Singh — Portfolio
 
 Welcome to my portfolio.
 
