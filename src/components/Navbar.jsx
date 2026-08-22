@@ -23,7 +23,7 @@ const Navbar = () => {
             />
           </Link>
         </GSAPmagnet>
-
+ 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8 lg:gap-12 text-sm lg:text-base">
           {["Home", "Projects", "Support"].map((item, i) => (
