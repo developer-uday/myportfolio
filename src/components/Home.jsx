@@ -75,7 +75,7 @@ const Home = () => {
           </button>
 
           <a
-            href="/UdayPratapSinghResume.pdf"
+            href="/myportfolio/UdayTechnicalResume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full sm:w-auto text-center bg-white text-black px-6 py-2.5 rounded border-2 hover:px-10 shadow-custom transition-all duration-500"
