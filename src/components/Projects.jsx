@@ -8,7 +8,7 @@ const projects = [
     tech: ["MongoDB", "Express", "React", "Node.js"],
     previewlink: "#",
     githublink: "#",
-    thumbnail: "/thumbnails/previewunavailable.png",
+    thumbnail: "/myportfolio/thumbnails/previewunavailable.png",
   },
   {
     title: "Web Automation Testing",
@@ -17,7 +17,7 @@ const projects = [
     tech: ["JavaScript", "Playwright"],
     previewlink: "#",
     githublink: "#",
-    thumbnail: "/thumbnails/previewunavailable.png",
+    thumbnail: "/myportfolio/thumbnails/previewunavailable.png",
   },
   {
     title: "The wallstreetguy website",
@@ -26,7 +26,7 @@ const projects = [
     tech: ["JavaScript", "React", "Vite", "Tailwind CSS"],
     previewlink: "https://www.thewallstreetguy.com",
     githublink: "https://github.com/thewallstreetguy/thewallstreetguy",
-    thumbnail: "/thumbnails/thewallstreetguy.png",
+    thumbnail: "/myportfolio/thumbnails/thewallstreetguy.png",
   },
   {
     title: "To Do List",
@@ -35,7 +35,7 @@ const projects = [
     tech: ["JavaScript", "React", "Vite", "Express", "MongoDB", "JWT"],
     previewlink: "https://udaytodolist.vercel.app/auth/login",
     githublink: "https://github.com/developer-uday/To-do-list",
-    thumbnail: "/thumbnails/previewunavailable.png",
+    thumbnail: "/myportfolio/thumbnails/previewunavailable.png",
   },
   {
     title: "RailBite",
@@ -44,7 +44,7 @@ const projects = [
     tech: ["JavaScript", "React", "Vite", "Express", "MongoDB", "JWT"],
     previewlink: "https://railbite.vercel.app/login",
     githublink: "https://github.com/developer-uday/railbite",
-    thumbnail: "/thumbnails/railbite.png",
+    thumbnail: "/myportfolio/thumbnails/railbite.png",
   },
 ];
 

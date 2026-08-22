@@ -28,7 +28,7 @@ const BuyMeCoffee = () => {
         {/* Optional QR */}
         <div className="mt-4 flex justify-center">
           <img
-            src="/MyQRCode.png"
+            src="/myportfolio/MyQRCode.png"
             alt="QR Code"
             className="w-40 h-40 object-contain scale-125 origin-center hover:scale-135 transition-transform duration-300"
           />
